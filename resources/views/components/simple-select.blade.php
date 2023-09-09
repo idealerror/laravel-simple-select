@@ -28,7 +28,7 @@
     x-init="init();"
     x-on:click.outside="closeSelect()"
     x-on:keydown.escape="closeSelect()"
-    :wire:key="`${id}${generateID()}`"
+    :wire:key="time()"
 >
     <div
         x-ref="simpleSelectButton"
