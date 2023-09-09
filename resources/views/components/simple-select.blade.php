@@ -1,10 +1,12 @@
+@include('simple-select::components.script')
+
 <div
     x-cloak
     class="relative mt-1"
     x-data="SimpleSelect({
         dataSource: {{ is_array($options) ? json_encode($options) : json_encode([]) }},
         @if($attributes->whereStartsWith('wire:model')->first())
-            selected: @entangle($attributes->wire('model')).live,
+            selected: @entangle($attributes->wire('model')),
         @else
             selected: '',
         @endif
@@ -166,5 +168,3 @@
         </div>
     </div>
 </div>
-
-@include('simple-select::components.script')
