@@ -4,7 +4,7 @@
     x-data="SimpleSelect({
         dataSource: {{ is_array($options) ? json_encode($options) : json_encode([]) }},
         @if($attributes->whereStartsWith('wire:model')->first())
-            selected: @entangle($attributes->wire('model')),
+            selected: @entangle($attributes->wire('model')).live,
         @else
             selected: '',
         @endif
